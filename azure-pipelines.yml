@@ -20,8 +20,7 @@ steps:
 #    npm run build
 #  displayName: 'npm install and build'
   
-- task: CmdLine@2
-  dependsOn:NodeTool@0
+- task: CmdLine@2 
   inputs:
     script: 'npm install -g mbt @sap/cds-dk'
   displayName: Install CAP Build Tools and CAP Runtime Env
