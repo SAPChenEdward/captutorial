@@ -10,17 +10,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+#- task: NodeTool@0
+#  inputs:
+#    versionSpec: '10.x'
+#  displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+#- script: |
+#    npm install
+#    npm run build
+#  displayName: 'npm install and build'
   
 - task: CmdLine@2
+  dependsOn:NodeTool@0
   inputs:
     script: 'npm install -g mbt @sap/cds-dk'
   displayName: Install CAP Build Tools and CAP Runtime Env
